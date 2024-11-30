@@ -985,13 +985,16 @@ const createBooking = async (req, res, next) => {
     };
   }
 
-    transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        console.error("[ERROR] Email sending failed:", error);
-      } else {
-        console.log("[INFO] Email sent:", info.response);
-      }
-    });
+    if (user.userType !== "faculty") {
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          console.error("[ERROR] Email sending failed:", error);
+        } else {
+          console.log("[INFO] Email sent:", info.response);
+        }
+      });
+    }
+    
 
     transporter.sendMail(mailOptions2, (error, info) => {
       if (error) {

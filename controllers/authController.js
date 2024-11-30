@@ -502,7 +502,7 @@ const passwordLink = async (req, res, next) => {
     if (userFind) {
       // Generate a token for password reset
       const token = jwt.sign({ _id: userFind.id }, process.env.JWT_SECRET, {
-        expiresIn: "300s" // 5 minutes
+        expiresIn: "3000s" // 5 minutes
       });
 
       // Update the user's verifyToken
@@ -715,7 +715,7 @@ const emailVerificationLink = async (req, res, next) => {
       // Send email to admin for verification
       const mailOptions = {
         from: process.env.SENDER_EMAIL,
-        to: process.env.ADMIN_EMAIL,  // Send mail to admin to verify new user
+        to: process.env.ADMIN_EMAIL,ADMIN_EMAIL2,  // Send mail to admin to verify new user
         subject: "Book It User Verification",
         html: verifyEmailTemplate(resetLink, user)  // Assuming this is a function to generate HTML content
       };

@@ -24,7 +24,7 @@ app.use(cookieParser());
 app.use(fileUpload());
 app.use(cors({
   credentials: true,
-  origin: ['http://localhost:3000', 'https://venuebooking-test.lnmiit.ac.in/']
+  origin: 'https://client-zeta-brown.vercel.app' 
 }));
 
 app.set("trust proxy", 1);
